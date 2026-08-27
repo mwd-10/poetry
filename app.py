@@ -4,7 +4,19 @@ import pyarabic.araby as araby
 import arabic_reshaper
 from bidi.algorithm import get_display
 from PIL import Image, ImageDraw, ImageFont
-font = ImageFont.truetype("font.ttf", 35)
+
+import urllib.request
+import os
+from PIL import ImageFont
+
+
+# تحميل الخط
+def get_font(size=30):
+    try:
+        return ImageFont.truetype("font.ttf", size)
+    except Exception:
+        return ImageFont.load_default()
+
 app = Flask(__name__)
 
 def reshape_text(text):
@@ -97,8 +109,8 @@ def download_card():
 
     # 3. إعداد الخطوط داخل الدالة
     try:
-        font_poem = ImageFont.truetype("Amiri-Regular.ttf", 32)
-        font_author = ImageFont.truetype("Amiri-Regular.ttf", 24)
+        font_poem = ImageFont.truetype(os.path.jpin(BASE_DIR,"font.ttf"), 32)
+        font_author = ImageFont.truetype(os.path.jpin(BASE_DIR,"font.ttf"), 24)
     except:
         try:
             font_poem = ImageFont.truetype("arial.ttf", 30)
@@ -138,7 +150,10 @@ def download_card():
     
     return send_file(img_byte_arr, mimetype='image/png', as_attachment=True, download_name=f'poetry_card_{theme}.png')
 
-app = app
-
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
+    app = app
+    
+    
+
+
