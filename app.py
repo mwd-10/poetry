@@ -4,7 +4,7 @@ import pyarabic.araby as araby
 import arabic_reshaper
 from bidi.algorithm import get_display
 from PIL import Image, ImageDraw, ImageFont
-
+font = ImageFont.truetype("font.ttf", 35)
 app = Flask(__name__)
 
 def reshape_text(text):
