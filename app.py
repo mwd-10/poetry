@@ -108,16 +108,21 @@ def download_card():
         draw.line([(width - 30, 30 + offset), (width - 30 - offset, 30)], fill=accent_color, width=2)
 
     # 3. إعداد الخطوط داخل الدالة
-  import os
-  BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    import os
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-  font_poem = ImageFont.truetype(os.path.join(BASE_DIR, "font.ttf"), 32)
-  font_author = ImageFont.truetype(os.path.join(BASE_DIR, "font.ttf"), 24)
+        try:
+        font_poem = ImageFont.truetype(
+            os.path.join(BASE_DIR, "font.ttf"), 32
+        )
+        font_author = ImageFont.truetype(
+            os.path.join(BASE_DIR, "font.ttf"), 24
+        )
     except:
         try:
             font_poem = ImageFont.truetype("arial.ttf", 30)
             font_author = ImageFont.truetype("arial.ttf", 24)
-        except:
+    except:
             font_poem = ImageFont.load_default()
             font_author = ImageFont.load_default()
 
@@ -154,7 +159,7 @@ def download_card():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    app = app
+    
     
     
 
