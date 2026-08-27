@@ -108,9 +108,11 @@ def download_card():
         draw.line([(width - 30, 30 + offset), (width - 30 - offset, 30)], fill=accent_color, width=2)
 
     # 3. إعداد الخطوط داخل الدالة
-    try:
-        font_poem = ImageFont.truetype(os.path.jpin(BASE_DIR,"font.ttf"), 32)
-        font_author = ImageFont.truetype(os.path.jpin(BASE_DIR,"font.ttf"), 24)
+  import os
+  BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+  font_poem = ImageFont.truetype(os.path.join(BASE_DIR, "font.ttf"), 32)
+  font_author = ImageFont.truetype(os.path.join(BASE_DIR, "font.ttf"), 24)
     except:
         try:
             font_poem = ImageFont.truetype("arial.ttf", 30)
