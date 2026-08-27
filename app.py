@@ -138,5 +138,7 @@ def download_card():
     
     return send_file(img_byte_arr, mimetype='image/png', as_attachment=True, download_name=f'poetry_card_{theme}.png')
 
+app = app
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
